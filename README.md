@@ -19,7 +19,7 @@ Improve with
         - Data Augmentation
         - Drop Out in the last layer
         - Fit with Regularization to improve training and reduce overfitting : 
-                1- Learning Rate Schduling
+                1- Learning Rate Scheduling
                 2- Weight decay
                 3- Gradient clipping
 
@@ -43,15 +43,15 @@ We use de imagenets_stats to normalize .
 
 
 # STEP 3: base model
-We choice the Resnet50 model pre-train
+We choice the Resnet34 model pre-train
 
 
 # SETP 4 : improve the model
-mprove with 
+improve with 
         - Data Augmentation
         - Drop Out in the last layer
         - Fit with Regularization to improve training and reduce overfitting : 
-                1- Learning Rate Schduling
+                1- Learning Rate Scheduling
                 2- Weight decay
                 3- Gradient clipping
 
