@@ -40,3 +40,5 @@ cmake-build-release/
 temp/*
 utils/*
 dataset_original/
+V1/
+V2/
