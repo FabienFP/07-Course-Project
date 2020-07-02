@@ -13,7 +13,7 @@ out
 
 
 .jovianrc
-.jpynb_checkpoints
+.ipynb_checkpoints
 
 
 .DocumentRevisions-V100
@@ -39,6 +39,6 @@ cmake-build-release/
 
 temp/*
 utils/*
-dataset_original/
-V1/
-V2/
+dataset_original/*
+V1/*
+V2/*
