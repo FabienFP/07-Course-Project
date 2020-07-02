@@ -68,7 +68,7 @@ We do 3 runs
 We usely freeze and unfreeze fisrt layers but, here, the result is not good, so we unfreeze the model
 
 ## 1st run
-epochs = 10 #10
+epochs = 10 
 max_lr = 0.005
 grad_clip = None
 weight_decay = 0
@@ -81,7 +81,7 @@ CPU times: user 30.4 s, sys: 11.3 s, total: 41.7 s
 Wall time: 14min 58s
 
 ## 2nd run
-epochs = 20 #20
+epochs = 20 
 max_lr = 0.001
 grad_clip = 0.05
 weight_decay = 1e-4
@@ -93,7 +93,7 @@ CPU times: user 1min 1s, sys: 22.2 s, total: 1min 24s
 Wall time: 29min 37s
 
 ## 3rd run
-epochs = 20 #20
+epochs = 20 
 max_lr = 0.001
 grad_clip = 0.05
 weight_decay = 1e-4
