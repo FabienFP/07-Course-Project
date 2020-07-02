@@ -13,7 +13,7 @@ out
 
 
 .jovianrc
-.ipynb_checkpoints
+.ipynb_checkpoints/*
 
 
 .DocumentRevisions-V100
