@@ -50,6 +50,8 @@ but we can't load a numpy array in ImageFolder()
 # STEP 3: base model
 We choice the Resnet34 model pre-train
 
+The laste layer is change with a nn.Seuential() with a linear classifier and Dopout() layer 
+
 
 # SETP 4 : improve the model
 improve with 
