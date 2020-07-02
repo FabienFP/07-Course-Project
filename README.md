@@ -39,7 +39,12 @@ Data are list in repotories of data (not shuffle)
 We augment and transform using Tranform.compose Pytorch function 
 We use de imagenets_stats to normalize . 
 #### issu 1, we could estimate the stats of our dataset 
-#### issu 2, we could find a function to train - valid split the train data set (here we do the separation manually)
+#### issu 2, we could find a function to train - valid split the train data set 
+(here we make a function to split randomly the dataset and create new file with copie of images)
+This is note a simple way. But it's right. 
+Train has an augmente data transform, and Val has a simple transform (like test dataset).
+Usely, we use a numpy array that we can split with a simple function,
+but we can't load a numpy array in ImageFolder()
 
 
 # STEP 3: base model
@@ -57,17 +62,59 @@ improve with
 
 # STEP 5 : Train
 
-We do 2 run with freeze and unfreeze weights of the pre-train model with :
+We do 3 runs 
 
-epochs = 15
-max_lr = 0.01
-grad_clip = 0.1
+## freeze or not ?
+We usely freeze and unfreeze fisrt layers but, here, the result is not good, so we unfreeze the model
+
+## 1st run
+epochs = 10 #10
+max_lr = 0.005
+grad_clip = None
+weight_decay = 0
+opt_func = torch.optim.Adam
+For the 1st run, regularization is note efficient, so we don't use weight_decay and grad_clip
+
+##### result
+Epoch [9], last_lr: 0.00000, train_loss: 1.5274, val_loss: 1.4842, val_acc: 0.4102
+CPU times: user 30.4 s, sys: 11.3 s, total: 41.7 s
+Wall time: 14min 58s
+
+## 2nd run
+epochs = 20 #20
+max_lr = 0.001
+grad_clip = 0.05
 weight_decay = 1e-4
 opt_func = torch.optim.Adam
 
-We note have the time to change the hyperparameter
-#### issu 3 : find a function to choice best param like kfolds in keras function
-3 functions plot the progress of the training : plot_scores(), plot_losses(), plot_lrs()
+##### result
+Epoch [19], last_lr: 0.00000, train_loss: 1.3342, val_loss: 1.2779, val_acc: 0.6078
+CPU times: user 1min 1s, sys: 22.2 s, total: 1min 24s
+Wall time: 29min 37s
+
+## 3rd run
+epochs = 20 #20
+max_lr = 0.001
+grad_clip = 0.05
+weight_decay = 1e-4
+opt_func = torch.optim.Adam
+
+##### result
+Epoch [19], last_lr: 0.00000, train_loss: 1.3220, val_loss: 1.2570, val_acc: 0.6101
+CPU times: user 1min 2s, sys: 21.7 s, total: 1min 24s
+Wall time: 29min 52s
+
+# improve the result
+Training loss is style > Validation loss , so we could run others epochs
+
+
+# improve the code
+3 issues are interesting to developpe (cf up)
+
+#### issu 1, we could estimate the stats of our dataset 
+#### issu 2, we could find a function to train - valid split the train data set 
+#### issu 3 : find a function to choice best param (weight_decay and max_lr) like kfolds in keras function
+
 
 # STEP 5 : Make some prediction
 a predict_image() function is tested with 2 exemples 
@@ -79,5 +126,4 @@ Save the model weights
 load the model
 Evaluate with de model_load
 
-# Conclusion
-3 issues are interesting to developpe (cf up)
+
